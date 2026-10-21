@@ -1,0 +1,14 @@
+# Windows 系统文件
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# 编辑器
+.vscode/
+.idea/
+
+# 压缩包与备份
+*.zip
+*.bak

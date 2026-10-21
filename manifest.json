@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "网页翻译助手",
+  "version": "1.0.8",
+  "description": "整页双语对照翻译 + 划词翻译。智能引擎切换(Google / 必应 / MyMemory),Edge 与 Chrome 通用。",
+  "permissions": ["storage", "contextMenus"],
+  "host_permissions": [
+    "https://clients5.google.com/*",
+    "https://translate.googleapis.com/*",
+    "https://cn.bing.com/*",
+    "https://www.bing.com/*",
+    "https://api.mymemory.translated.net/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "网页翻译助手"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

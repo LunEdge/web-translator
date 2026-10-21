@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  body { width: 300px; margin: 0; padding: 14px; font: 13px/1.6 system-ui, "Segoe UI", "Microsoft YaHei", sans-serif; color: #111827; }
+  .hd { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+  .logo { width: 22px; height: 22px; border-radius: 6px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; }
+  .btns { display: flex; gap: 8px; margin-bottom: 12px; }
+  button { flex: 1; border: none; border-radius: 8px; padding: 9px 0; font-size: 13px; font-weight: 600; cursor: pointer; }
+  #go { background: #2563eb; color: #fff; }
+  #go:hover { background: #1d4ed8; }
+  #undo { background: #e5e7eb; color: #374151; }
+  #undo:hover { background: #d1d5db; }
+  .row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .row label { color: #4b5563; }
+  select { border: 1px solid #d1d5db; border-radius: 6px; padding: 4px 6px; font-size: 12px; background: #fff; max-width: 170px; }
+  .chk { display: flex; align-items: center; gap: 6px; margin: 2px 0 8px; color: #4b5563; cursor: pointer; user-select: none; }
+  .chk input { accent-color: #2563eb; }
+  .hint { margin-top: 10px; padding: 8px 10px; border-radius: 8px; background: #f3f4f6; color: #6b7280; font-size: 12px; }
+</style>
+</head>
+<body>
+  <div class="hd"><span class="logo">译</span>网页翻译助手</div>
+  <div class="btns">
+    <button id="go">翻译此页</button>
+    <button id="undo">还原</button>
+  </div>
+  <div class="row">
+    <label>翻译引擎</label>
+    <select id="engine">
+      <option value="auto">智能(自动降级)</option>
+      <option value="google">Google(需代理)</option>
+      <option value="bing">必应(免代理)</option>
+      <option value="mymemory">MyMemory(免代理)</option>
+    </select>
+  </div>
+  <div class="row">
+    <label>显示方式</label>
+    <select id="display">
+      <option value="both">双语对照</option>
+      <option value="dst">仅看译文</option>
+    </select>
+  </div>
+  <label class="chk"><input type="checkbox" id="auto">打开此网站时自动翻译</label>
+  <div class="hint" id="hint">划词翻译:选中文字即显示译文;整页翻译点上方按钮</div>
+  <script src="popup.js"></script>
+</body>
+</html>

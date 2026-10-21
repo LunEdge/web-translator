@@ -1,0 +1,97 @@
+/* 网页翻译助手 - 内容样式 */
+
+/* 译文:跟在原文后面,蓝色以示区分 */
+.wt-dst {
+  display: inline;
+  margin-left: 0.3em;
+  color: #2563eb;
+  color: light-dark(#1d4ed8, #7fb0ff);
+  opacity: 0.95;
+}
+
+/* 顶部状态浮条 */
+.wt-pill {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 420px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(17, 24, 39, 0.92);
+  color: #f9fafb;
+  font: 12px/1.6 system-ui, "Segoe UI", "Microsoft YaHei", sans-serif;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  /* 点击穿透:浮条盖住页面元素(如 GitHub 右上角头像菜单)时,非按钮区域的点击直接透过去 */
+  pointer-events: none;
+}
+.wt-pill.wt-fade { opacity: 0; transition: opacity 0.45s; }
+.wt-pill b { font-weight: 600; }
+.wt-pill .wt-pill-meta { color: #9ca3af; }
+.wt-pill button {
+  border: none;
+  border-radius: 6px;
+  padding: 2px 9px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+  pointer-events: auto; /* 仅按钮本身可点 */
+}
+.wt-pill button:hover { background: rgba(255, 255, 255, 0.28); }
+.wt-pill .wt-close { padding: 2px 6px; }
+
+/* 划词翻译弹窗 */
+.wt-selbox {
+  position: fixed;
+  z-index: 2147483647;
+  max-width: 380px;
+  min-width: 80px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #111827;
+  font: 14px/1.7 system-ui, "Segoe UI", "Microsoft YaHei", sans-serif;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.wt-selbox .wt-sel-src {
+  font-size: 12px;
+  color: #6b7280;
+  max-height: 52px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.wt-selbox .wt-sel-tr {
+  color: #1e3a8a;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+.wt-selbox .wt-sel-meta {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #9ca3af;
+}
+.wt-selbox .wt-loading { color: #6b7280; }
+
+/* 加载动画 */
+.wt-spin {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
+  border: 2px solid #d1d5db;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: wt-rot 0.8s linear infinite;
+  flex: none;
+}
+.wt-pill .wt-spin { border-color: rgba(255, 255, 255, 0.25); border-top-color: #fff; }
+@keyframes wt-rot { to { transform: rotate(360deg); } }
+
+/* 仅看译文模式:隐藏已有译文的原文(无译文的不隐藏,避免内容丢失) */
+.wt-only-dst .wt-src:has(+ .wt-dst) { display: none; }
+.wt-only-dst .wt-dst { margin-left: 0; }
